@@ -1,0 +1,40 @@
+
+body{
+    background-color: khaki;
+    font-family: 'Chakra Petch', sans-serif;
+}
+ 
+h1{
+    text-align: center;
+}
+
+div{
+    text-align: center;
+}
+
+.div-texto{
+   display: inline;
+  
+    margin-top: 0px;
+    margin-top: 0px;
+}
+
+.esconder{
+    display: none;
+}
+
+p{
+    margin: 2px;
+}
+
+.entradas{
+    background-color: #E8E2DB;
+    border-radius: 6px;
+    border-style: solid;
+    margin: 5px;
+    padding: 3px;
+}
+
+.className{
+    color: saddlebrown;
+}
