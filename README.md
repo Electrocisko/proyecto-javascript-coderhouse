@@ -4,7 +4,7 @@
 
 - 🔭 I’m currently working on [Electrocisko](https://github.com/Electrocisko/FranciscoZuidwijk-Electrocisko)
 
-- 🌱 I’m currently learning **web design in CoderHouse**
+- 🌱 I’m currently learning **JavaScript at CoderHouse**
 
 - 📫 How to reach me **electrocisko@gmail.com**
 
