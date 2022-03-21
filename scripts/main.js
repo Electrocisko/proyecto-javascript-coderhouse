@@ -6,13 +6,14 @@
 // Declaro variables globales
 
 let totalizador;
-let precioBoca = 3500;
 let precioTotal;
 let precioEnUsd;
 let listaAmbientes = []
 let containerFormulario;
 let containerBoton;
 let boton;
+//Como son precios diferentes, la pagina index guarda el precio en el localstorage y lo recupero en la pagina presupuesto
+let precioBoca = parseInt(localStorage.getItem("precio")); 
 let containerAmbientes; // contenedor de id="container-ambientes"
 let form1; // formulario que va estar dentro de containerAmbientes
 let listaRecuperadaJson = localStorage.getItem("listaAmbientes"); // Recupera LocalStorage

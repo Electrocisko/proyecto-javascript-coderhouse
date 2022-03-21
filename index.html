@@ -1,59 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presupuesto Electricidad</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="estilos/style.css">
+    <title>Cotizador</title>
 </head>
-
 <body>
- 
-  <h1>Calculo Mano de Obra de instalación Eléctrica</h1>
-  
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Electrocisko</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="paginas/presupuesto.html">Presupuesto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+</header>
+    <main class="text-dark" >
+      <h1 class="text-center ">Presupuesto de Mano de obra Electrica</h1>
+      <h4 class="text-center">Haga Click en la opción que desea.</h4>
+        <div class="container h-100 ">
+            <div class="row">
+                <div class="col-12  col-sm-6 col-md-4 mt-2 " >
+                  <a href="presupuesto.html" id="canioMetal" >                  
+                      <div class="card ">
+                          <img class="card-img-top" src="imagenes/caño2.jpg" alt="Caño metalico a la vista ">
+                          <div class="card-body">
+                            <h4 class="card-title ">Metálico a la vista</h4>
+                            <p class="card-text">
+                              Caño semipesado negro de 3/4 ""
+                            </p>
+                          </div>
+                        </div> 
+                    </a>     
+                 </div>
 
-  <article id="container-datos">
-    <div id="Bienvenida" class="div-texto">
-      <p>Vamos a presupuestar la Mano de Obra, para realizar un instalación eléctrica en una casa estándar</p>
-      <p>Usted tiene que tomar nota de cuantas tomacorrientes y luces precisa en cada ambiente</p>
-      <p>Los Tomas especiales son aquellos que requieran más consumo ejemplo un Aire, un calefón eléctrico etc.</p>
-      <p>El sistema acepta únicamente números, en caso de que no haya respuesta ingrese el numero cero.</p>
-      
-    </div>
+                <div class="col-12 col-sm-6 col-md-4 mt-2 mb-2 ">
+                  <a href="presupuesto.html" id="canioEmbutido" >
+                    <div class="card">
+                        <img class="card-img-top" src="imagenes/embutido.jpg" alt="Caño embutido en pared">
+                        <div class="card-body">
+                          <h4 class="card-title">Caño embutido en pared</h4>
+                          <p class="card-text">
+                            Caño corrugado 3/4.
+                          </p>
+                        </div>
+                      </div>
+                    </a>   
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 mt-2 mb-2 ">
+                  <a href="presupuesto.html" id="recableado">
+                    <div class="card">
+                        <img class="card-img-top" src="imagenes/cables.png" alt="Card image cap">
+                        <div class="card-body">
+                          <h4 class="card-title">Recableado</h4>
+                          <p class="card-text">
+                            Para instalaciones existentes.
+                          </p> 
+                        </div>
+                      </div>
+                  </a>    
+                </div>
+            </div>
+        </div>
+    </main>
     
-    <div id="container-ambientes" ></div>
-    <br>
-
-    <div id="container-formulario"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <script src="scripts/eventosindex.js"></script>
     
-    <div id="container-tabla"></div>
-
-    <div id="container-mensaje" class="div-texto"></div>
-    
-
-    <div id="container-boton"></div>
-    <div id="recupera" >
-      <button class="btn btn-outline-dark ">Recuperar Ultimo Informe</button>
-    </div>
-  </article>
-
-  <div id="container-informe" class="container w-50"></div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/luxon@2.3.1/build/global/luxon.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="scripts/main.js"></script>
     
 </body>
-
 </html>
