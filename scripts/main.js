@@ -53,7 +53,7 @@ function formularioAmbientes(){
     let entrada = document.createElement("input");
     entrada.setAttribute("type","number");
     entrada.setAttribute("required","requiered");
-    entrada.setAttribute("min","0");
+    entrada.setAttribute("min","1"); // Para que no se pueda ingresar cero o negativos
     entrada.setAttribute("placeholder","Cantidad Ambientes");
     entrada.classList.add("entradas");
     let boton = document.createElement("input");
@@ -85,7 +85,7 @@ function iniciarFormulario(cantAmbientes){
 function crearInforme(){
     containerBoton = document.getElementById("container-boton");
     boton = document.createElement("button");
-    boton.innerHTML =`<button class="btn btn-outline-dark">Obtengo su presupuesto</button>`;
+    boton.innerHTML =`<button class="btn btn-outline-dark">Obtenga su presupuesto</button>`;
     containerBoton.appendChild(boton);
     boton.classList.add("entradas");
     boton.onclick = () =>{
