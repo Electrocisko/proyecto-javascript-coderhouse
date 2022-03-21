@@ -13,8 +13,7 @@ div{
 }
 
 .div-texto{
-   display: inline;
-  
+    display: inline;
     margin-top: 0px;
     margin-top: 0px;
 }
@@ -37,4 +36,8 @@ p{
 
 .className{
     color: saddlebrown;
+}
+
+table  {
+    text-align: center;
 }

@@ -1,4 +1,4 @@
-// Desafio: Incorporar Eventos
+
 // Profesor: Adrian Gonzalez
 // Tutora: Carla Montani
 // Alumno: Francisco Zuidwijk
@@ -128,10 +128,10 @@ function iniciaInforme(){
     fecha.innerText = `Ciudad Autonoma de Buenos Aires,  ${fechaActual.toLocaleString(DateTime.DATE_FULL)}`;
     containerInforme.appendChild(fecha);
     containerInforme.appendChild(textoInforme);
-    // formCont.innerHTML = formContacto;
+    //formCont.innerHTML = formContacto;
     containerInforme.appendChild(formCont);
     guardaEnStorage();
- 
+    muestraTablaStorage(listaAmbientes)
 }
 
 
@@ -210,7 +210,7 @@ function creaInputs(cantAmbientes){
                 }
             }).showToast();
             formulario.reset(); // para que los valores vuelvan a cero
-            cont == 1 && muestraTabla(); //Para que muestre el encabezado y no lo repita despues en cada ciclo
+            cont == 1 && creaTabla(); //Para que muestre el encabezado y no lo repita despues en cada ciclo
             console.log(listaAmbientes[listaAmbientes.length-1]);
             agregaFilaTabla(listaAmbientes[listaAmbientes.length-1]);
             cont +=1; 
@@ -231,6 +231,7 @@ function recuperoInforme(){
     function recuperaDatos(){
         listaAmbientes = JSON.parse(listaRecuperadaJson);
         calculaTotales();
+       // muestraTablaStorage(listaAmbientes);
     }
 }
 
@@ -239,13 +240,12 @@ function muestraInformeRecuperado(){
     recuperoInforme();
     calculoPrecioTotal(); // llamo la funcion que calcula el precio
     iniciaInforme(); // llamo para que muestre el informe 
-
 }
 
 
 // Function que crea la tabla
 const tabla = document.createElement("table");
-function muestraTabla(){
+function creaTabla(){
     let containerTabla = document.getElementById("container-tabla")
     tabla.classList.add("table","container","table-striped", "table-bordered", "border-dark", "w-50", "text-center");
     const encabezado = document.createElement("tr");
@@ -260,21 +260,40 @@ function agregaFilaTabla(lista){ // recibe como parametro el ultimo objeto ambie
     tabla.appendChild(fila);
 }
 
+function muestraTablaStorage(listaGuardado){
+    const tablaStorage = document.createElement("table");
+    let containerTablaGuardada = document.getElementById("tabla-guardada")
+    tablaStorage.classList.add("table","container","table-striped", "table-bordered", "border-dark", "w-50", "text-center");
+    const encabezado = document.createElement("tr");
+    encabezado.innerHTML =`<th scope="col">Ambiente</th><th scope="col">Tomas comunes</th><th scope="col">Luces</th><th scope="col">Tomas Especiales</th>`
+    tablaStorage.appendChild(encabezado);
+    containerTablaGuardada.appendChild(tablaStorage);
+    listaGuardado.forEach(element => {
+        const fila = document.createElement("tr");
+        fila.innerHTML = `<th scope="row">${element.nombre}</th><td>${element.tug}</td><td>${element.luz}</td><td>${element.tue}</td>`
+        tablaStorage.appendChild(fila);
+    });
+}
 
-// Este formulario esta en la linea 118 en function iniciaInforme()
-const formContacto =    `<form>
+
+
+
+
+
+// Este formulario esta en la linea 131 en function iniciaInforme()
+const formContacto =    `<form action="https://formspree.io/f/myyopvdz"method="POST">
                         <div class="mb-3">
                         <label for="nombre-apellido" class="form-label">Nombre y Apellido</label>
-                        <input type="text" class="form-control" id="nombre-apellido">
+                        <input name="nombre" type="text" class="form-control" id="nombre-apellido">
                         </div>
                         <div class="mb-3">
                         <label for="inputMail" class="form-label">E-mail</label>
-                        <input type="email" class="form-control" id="inputMail" aria-describedby="emailHelp">
+                        <input name="mail" type="email" class="form-control" id="inputMail" aria-describedby="emailHelp">
                         
                         </div>
                         <div class="mb-3">
                         <label for="celular" class="form-label">Numero Celular</label>
-                        <input type="phone" class="form-control" id="inputPhone" aria-describedby="phoneHelp">
+                        <input name="celular" type="phone" class="form-control" id="inputPhone" aria-describedby="phoneHelp">
                         <div id="phonelHelp" class="form-text"></div>
                         </div>
                         <button type="submit" class="btn btn-dark">Enviar</button>
