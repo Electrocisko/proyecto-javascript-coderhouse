@@ -104,14 +104,17 @@ function calculaTotales(){
     let tugs = listaAmbientes.map( (el) => parseInt(el.tug)); // los parseo porque me devuelve string
     let luz = listaAmbientes.map( (el) => parseInt(el.luz));
     let tue = listaAmbientes.map( (el)=> parseInt(el.tue));
-    let total = [...tugs, ...luz, ...tue]; // Aplico SPREAD para unir los tres arrays
-    totalizador = total.reduce((suma,item)=> suma + item,0)
+    let totalTomas = tugs.reduce ((suma, item)=> suma + item, 0);
+    let totalLuces = luz.reduce ((suma,item)=> suma + item,0);
+    let totalTomasEspeciales = tue.reduce((suma,item)=> suma+item,0);
+   
+    totalizador = totalTomas + (totalLuces*1.25) +  (totalTomasEspeciales * 2);
+    
      }
 
 function calculoPrecioTotal(){
-    precioTotal = parseInt(totalizador) * precioBoca;
+    precioTotal = totalizador * precioBoca;
     precioEnUsd = precioTotal/(dolarPesos*1.65); // Tomo en cuenta el impuesto del 65% a la compra de USD
-    console.log(precioEnUsd);
 }
 
 // Function que muestra los datos y le agrega una clase display:none al formulario asi lo esconde
@@ -124,7 +127,7 @@ function iniciaInforme(){
     let textoInforme = document.createElement("h6");
     let formCont = document.createElement("div")
     textoInforme.innerHTML = `<h6>Le adjuntamos nuestra propuesta para hacer la instalación eléctrica de su casa.</h6>
-    <h6>Esto es a título informativo, para que usted tenga una referencia de los costos.</h6><h5><strong> Su casa tiene: ${totalizador} Bocas en total. <br> El costo total es de $ ${precioTotal.toLocaleString()} Pesos Argentinos</strong></h5>
+    <h6>Esto es a título informativo, para que usted tenga una referencia de los costos.</h6> <h5><strong> El costo total es de $ ${precioTotal.toLocaleString()} Pesos Argentinos</strong></h5>
     <h5><strong>Equivalente a ${Math.trunc(precioEnUsd)} USD</strong></h5>
     <h6><input type="button" value="Reiniciar" onclick="location.reload()" class="btn btn-dark "/> </h6>`; 
     let fecha = document.createElement("p");
@@ -234,7 +237,6 @@ function recuperoInforme(){
     function recuperaDatos(){
         listaAmbientes = JSON.parse(listaRecuperadaJson);
         calculaTotales();
-       // muestraTablaStorage(listaAmbientes);
     }
 }
 
