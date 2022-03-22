@@ -107,9 +107,7 @@ function calculaTotales(){
     let totalTomas = tugs.reduce ((suma, item)=> suma + item, 0);
     let totalLuces = luz.reduce ((suma,item)=> suma + item,0);
     let totalTomasEspeciales = tue.reduce((suma,item)=> suma+item,0);
-   
     totalizador = totalTomas + (totalLuces*1.25) +  (totalTomasEspeciales * 2);
-    
      }
 
 function calculoPrecioTotal(){
@@ -146,6 +144,7 @@ function creaInputs(cantAmbientes){
     
     containerFormulario = document.getElementById("container-formulario")
     const formulario = document.createElement("form");
+    formulario.classList.add("contenedor-inputs")
     const selectAmbientes = document.createElement("select");
     selectAmbientes.classList.add("entradas");
     let textoSelect = `<option>Living</option><option>Comedor</option><option>Cocina</option><option>Baño-1</option><option>Dormitorio-1</option><option>Baño-2</option><option>Dormitorio-2</option><option>Baño-3</option><option>Dormitorio-3</option><option>Baño-4</option><option>Dormitorio-4</option><option>Otros</option>`
