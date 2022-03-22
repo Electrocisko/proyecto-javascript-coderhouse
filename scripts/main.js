@@ -14,6 +14,7 @@ let containerBoton;
 let boton;
 //Como son precios diferentes, la pagina index guarda el precio en el localstorage y lo recupero en la pagina presupuesto
 let precioBoca = parseInt(localStorage.getItem("precio")); 
+let tipoDeTrabajo = localStorage.getItem("trabajo");
 let containerAmbientes; // contenedor de id="container-ambientes"
 let form1; // formulario que va estar dentro de containerAmbientes
 let listaRecuperadaJson = localStorage.getItem("listaAmbientes"); // Recupera LocalStorage
@@ -45,7 +46,9 @@ botonRecupera.onclick = () =>{
     muestraInformeRecuperado();
 }
 
+muestraTipoTrabajo(tipoDeTrabajo);
 formularioAmbientes();
+
 
 // Creo el formulario que pide que ingrese la cantidad de ambientes
 function formularioAmbientes(){
@@ -275,7 +278,12 @@ function muestraTablaStorage(listaGuardado){
     });
 }
 
-
+function muestraTipoTrabajo(mostrarTrabajo){
+    let titulo2 = document.getElementById("tipo-trabajo");
+    let trabajo = document.createElement("h2")
+    trabajo.innerHTML = mostrarTrabajo;
+    titulo2.appendChild(trabajo);
+}
 
 
 
