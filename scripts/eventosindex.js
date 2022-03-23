@@ -1,3 +1,9 @@
+// Proyecto Final JavaScript Coderhouse
+// Profesor: Adrian Gonzalez
+// Tutora: Carla Montani
+// Alumno: Francisco Zuidwijk
+//----------------------------------------------------------------------------------------------
+
 let canioMetal = 4500;
 let soloRecablear = 2800;
 let canioEmbutido = 3800;

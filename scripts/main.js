@@ -1,4 +1,4 @@
-
+// Proyecto Final JavaScript Coderhouse
 // Profesor: Adrian Gonzalez
 // Tutora: Carla Montani
 // Alumno: Francisco Zuidwijk
@@ -33,8 +33,6 @@ let dolarPesos;
 const pedirCotizacion = async () => {
   const resp = await fetch('https://v6.exchangerate-api.com/v6/e691df072cccfde90a8a1472/latest/USD');
   const data = await resp.json();
-  console.log(data);
-  console.log(data.conversion_rates.ARS);
   dolarPesos = data.conversion_rates.ARS;// recupero el de USD-ARS
 }
 pedirCotizacion();
@@ -108,7 +106,7 @@ function calculaTotales(){
     let totalLuces = luz.reduce ((suma,item)=> suma + item,0);
     let totalTomasEspeciales = tue.reduce((suma,item)=> suma+item,0);
     totalizador = totalTomas + (totalLuces*1.25) +  (totalTomasEspeciales * 2);
-     }
+}
 
 function calculoPrecioTotal(){
     precioTotal = totalizador * precioBoca;
@@ -123,17 +121,15 @@ function iniciaInforme(){
     const fechaActual = DateTime.now();
     let containerInforme = document.getElementById("container-informe");
     let textoInforme = document.createElement("h6");
-    let formCont = document.createElement("div")
     textoInforme.innerHTML = `<h6>Le adjuntamos nuestra propuesta para hacer la instalación eléctrica de su casa.</h6>
     <h6>Esto es a título informativo, para que usted tenga una referencia de los costos.</h6> <h5><strong> El costo total es de $ ${precioTotal.toLocaleString()} Pesos Argentinos</strong></h5>
     <h5><strong>Equivalente a ${Math.trunc(precioEnUsd)} USD</strong></h5>
-    <h6><input type="button" value="Reiniciar" onclick="location.reload()" class="btn btn-dark "/> </h6>`; 
+    <h6><input type="button" value="Reiniciar" onclick="location.href ='index.html';" class="btn btn-dark "/> </h6>
+    <p>Con el boton reiniciar y recuperar informe puede comparar otras opciones`; 
     let fecha = document.createElement("p");
     fecha.innerText = `Ciudad Autonoma de Buenos Aires,  ${fechaActual.toLocaleString(DateTime.DATE_FULL)}`;
     containerInforme.appendChild(fecha);
     containerInforme.appendChild(textoInforme);
-    //formCont.innerHTML = formContacto;
-    containerInforme.appendChild(formCont);
     guardaEnStorage();
     muestraTablaStorage(listaAmbientes)
 }
@@ -226,7 +222,6 @@ function creaInputs(cantAmbientes){
 
 // Esta function guarda el array en el localStorage
 function guardaEnStorage(){
-    // Utilizo el operador Logico AND
     listaAmbientes.length != 0 && localStorage.setItem("listaAmbientes",JSON.stringify(listaAmbientes));
 }
 
@@ -285,28 +280,4 @@ function muestraTipoTrabajo(mostrarTrabajo){
     trabajo.innerHTML = mostrarTrabajo;
     titulo2.appendChild(trabajo);
 }
-
-
-
-
-// Este formulario esta en la linea 131 en function iniciaInforme()
-const formContacto =    `<form action="https://formspree.io/f/myyopvdz"method="POST">
-                        <div class="mb-3">
-                        <label for="nombre-apellido" class="form-label">Nombre y Apellido</label>
-                        <input name="nombre" type="text" class="form-control" id="nombre-apellido">
-                        </div>
-                        <div class="mb-3">
-                        <label for="inputMail" class="form-label">E-mail</label>
-                        <input name="mail" type="email" class="form-control" id="inputMail" aria-describedby="emailHelp">
-                        
-                        </div>
-                        <div class="mb-3">
-                        <label for="celular" class="form-label">Numero Celular</label>
-                        <input name="celular" type="phone" class="form-control" id="inputPhone" aria-describedby="phoneHelp">
-                        <div id="phonelHelp" class="form-text"></div>
-                        </div>
-                        <button type="submit" class="btn btn-dark">Enviar</button>
-                        </form>`
-
-
-                       
+                     
